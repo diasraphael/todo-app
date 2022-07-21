@@ -1,2 +1,5 @@
 # todo-app
-Created with CodeSandbox
+
+todo app using react framework
+
+- using functional components
