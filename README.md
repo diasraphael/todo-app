@@ -2,9 +2,10 @@
 
 todo app using react framework
 
-- using functional components
-- using redux to store the todos
+- used functional components
+- added redux to store the todos
 - included font awesome for delete,edit,done icons
+- used uuid to generate unique id for each todo
 
 Functionalities
 
