@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ActionType } from "../actions/actionTypes";
+import { v4 as uuidv4 } from "uuid";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -9,7 +10,7 @@ function AddTodo() {
     event.preventDefault();
     dispatch({
       type: ActionType.ADD_TODO,
-      payload: { text: input, done: false },
+      payload: { text: input, done: false, id: uuidv4() },
     });
     setInput("");
   };
