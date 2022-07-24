@@ -25,6 +25,15 @@ const todoReducer = (state: InitialState = initialState, action: Action) => {
       return {
         todoList: state.todoList.filter((todo: Todo) => todo.id !== payload.id),
       };
+    case ActionType.TODO_DONE:
+      return {
+        todoList: state.todoList.map((todo: Todo) => {
+          if (todo.id === payload.id) {
+            return { ...todo, done: true };
+          }
+          return todo;
+        }),
+      };
     default:
       return state;
   }

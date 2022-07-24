@@ -10,4 +10,5 @@ todo app using react framework
 Functionalities
 
 - User will be able to add todos and it will be added to the top of the todos.
-- Deleting todo will remove todo from the todo list
+- Deleting todo will remove todo from the todo list.
+- Move todo task to Done.
