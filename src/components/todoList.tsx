@@ -24,7 +24,7 @@ export const TodoList = () => {
           <h1>
             <FontAwesomeIcon
               icon={faTrashCan}
-              color="#00a8f0"
+              color="red"
               onClick={() => {
                 dispatch({
                   type: ActionType.DELETE_TODO,
@@ -33,20 +33,20 @@ export const TodoList = () => {
               }}
             />
           </h1>
-          <h1>
-            <FontAwesomeIcon
-              icon={faSquareCheck}
-              color="#00a8f0"
-              onClick={() => {}}
-            />
-          </h1>
-          <h1>
-            <FontAwesomeIcon
-              icon={faPenSquare}
-              color="#00a8f0"
-              onClick={() => {}}
-            />
-          </h1>
+          {item.done && (
+            <h1>
+              <FontAwesomeIcon icon={faSquareCheck} color="green" />
+            </h1>
+          )}
+          {!item.done && (
+            <h1>
+              <FontAwesomeIcon
+                icon={faPenSquare}
+                color="#00a8f0"
+                onClick={() => {}}
+              />
+            </h1>
+          )}
         </div>
       ))}
     </ul>
