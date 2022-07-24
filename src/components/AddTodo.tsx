@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ActionType } from "../actions/actionTypes";
 
-function AddTodo(props: any) {
-  const { todos } = props;
-  const [todosList, setTodosList] = useState(todos);
+function AddTodo() {
   const [input, setInput] = useState("");
+  const dispatch = useDispatch();
   const addTodo = (event: any) => {
     event.preventDefault();
-    setTodosList([...todosList, { text: input, done: false }]);
+    dispatch({
+      type: ActionType.ADD_TODO,
+      payload: { text: input, done: false },
+    });
     setInput("");
   };
-  console.log(todosList);
   return (
     <form className="addTodo">
       <input
