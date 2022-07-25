@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { ActionType } from "../actions/actionTypes";
 import EditTodo from "./EditTodo";
+import { toast } from "react-toastify";
 
 export const initialTodo: Todo = {
   id: "",
@@ -22,6 +23,13 @@ export const TodoList = () => {
   const [editedTodo, setEditedTodo] = useState(initialTodo);
   const dispatch = useDispatch();
   const todos = useSelector((state: State) => state.todos.todoList);
+  const taskDoneNotify = () => {
+    toast.success("Todo completed.", { position: toast.POSITION.BOTTOM_LEFT });
+  };
+
+  const deleteNotify = () => {
+    toast.success("Todo deleted.", { position: toast.POSITION.BOTTOM_LEFT });
+  };
   return (
     <ul className="todoList">
       {todos.map((item: Todo, i: number) => (
@@ -45,6 +53,7 @@ export const TodoList = () => {
                       type: ActionType.DELETE_TODO,
                       payload: { id: item.id },
                     });
+                    deleteNotify();
                   }}
                 />
               </h1>
@@ -59,6 +68,7 @@ export const TodoList = () => {
                         type: ActionType.TODO_DONE,
                         payload: { id: item.id },
                       });
+                      taskDoneNotify();
                     }}
                   />
                 </h1>

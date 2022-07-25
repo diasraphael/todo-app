@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { ActionType } from "../actions/actionTypes";
 import { initialTodo } from "./TodoList";
 
@@ -7,6 +8,16 @@ function EditTodo(props: any) {
   const { todo, setEditedTodo } = props;
   const [input, setInput] = useState(todo.text);
   const dispatch = useDispatch();
+  const notify = () => {
+    toast.success("Todo edited successfully", {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  };
+  const failureNotify = () => {
+    toast.warning("Todo cannot be empty", {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  };
   const editTodo = (event: any) => {
     event.preventDefault();
     if (input) {
@@ -15,8 +26,10 @@ function EditTodo(props: any) {
         payload: { ...todo, text: input },
       });
       setEditedTodo(initialTodo);
+      notify();
+    } else {
+      failureNotify();
     }
-    return false;
   };
   return (
     <form className="editTodo">
