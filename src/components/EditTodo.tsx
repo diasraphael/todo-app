@@ -9,14 +9,17 @@ function EditTodo(props: any) {
   const dispatch = useDispatch();
   const editTodo = (event: any) => {
     event.preventDefault();
-    dispatch({
-      type: ActionType.EDIT_TODO,
-      payload: { ...todo, text: input },
-    });
-    setEditedTodo(initialTodo);
+    if (input) {
+      dispatch({
+        type: ActionType.EDIT_TODO,
+        payload: { ...todo, text: input },
+      });
+      setEditedTodo(initialTodo);
+    }
+    return false;
   };
   return (
-    <form className="addTodo">
+    <form className="editTodo">
       <input
         type="text"
         value={input}
