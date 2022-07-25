@@ -21,6 +21,15 @@ const todoReducer = (state: InitialState = initialState, action: Action) => {
   switch (type) {
     case ActionType.ADD_TODO:
       return { todoList: [payload, ...state.todoList] };
+    case ActionType.EDIT_TODO:
+      return {
+        todoList: state.todoList.map((todo: Todo) => {
+          if (todo.id === payload.id) {
+            return { ...todo, text: payload.text };
+          }
+          return todo;
+        }),
+      };
     case ActionType.DELETE_TODO:
       return {
         todoList: state.todoList.filter((todo: Todo) => todo.id !== payload.id),

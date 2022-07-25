@@ -1,31 +1,32 @@
 import { ActionType } from "./actionTypes";
 
-type Id = {
-  id: string;
-};
-
 export interface AddAction {
   type: ActionType.ADD_TODO;
   payload: Todo;
 }
 
+export interface EditAction {
+  type: ActionType.EDIT_TODO;
+  payload: Todo;
+}
+
 export interface DoneAction {
   type: ActionType.TODO_DONE;
-  payload: Id;
+  payload: Todo;
 }
 
 export interface DeleteAction {
   type: ActionType.DELETE_TODO;
-  payload: Id;
+  payload: Todo;
 }
 export type InitialState = {
   todoList: Todo[];
 };
 
 export type Todo = {
-  text: string;
-  done: boolean;
+  text?: string;
+  done?: boolean;
   id: string;
 };
 
-export type Action = AddAction | DeleteAction | DoneAction;
+export type Action = AddAction | DeleteAction | DoneAction | EditAction;
