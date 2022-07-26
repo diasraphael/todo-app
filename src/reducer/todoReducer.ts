@@ -1,7 +1,7 @@
 import { Action, InitialState, Todo } from "../actions";
 import { ActionType } from "../actions/actionTypes";
 
-const initialState = {
+const initialState: InitialState = {
   todoList: [
     {
       text: "Buy milk",

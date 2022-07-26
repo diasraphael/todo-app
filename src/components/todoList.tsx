@@ -33,7 +33,7 @@ export const TodoList = () => {
   return (
     <ul className="todoList">
       {todos.map((item: Todo, i: number) => (
-        <div key={i} className="flex">
+        <div key={i} className="todo">
           {editedTodo.id === item.id ? (
             <EditTodo todo={editedTodo} setEditedTodo={setEditedTodo} />
           ) : (

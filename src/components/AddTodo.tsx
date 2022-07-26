@@ -12,7 +12,7 @@ function AddTodo() {
       position: toast.POSITION.BOTTOM_LEFT,
     });
   };
-  const addTodo = (event: any) => {
+  const addTodo = (event: React.SyntheticEvent<EventTarget>) => {
     event.preventDefault();
     dispatch({
       type: ActionType.ADD_TODO,

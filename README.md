@@ -17,6 +17,7 @@ or (if you face any issues)
 - added redux to store the todos
 - included font awesome for delete,edit,done icons
 - used uuid to generate unique id for each todo
+- test cases with redux setup
 
 ## Functionalities
 

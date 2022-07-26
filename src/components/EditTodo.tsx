@@ -18,7 +18,7 @@ function EditTodo(props: any) {
       position: toast.POSITION.BOTTOM_LEFT,
     });
   };
-  const editTodo = (event: any) => {
+  const editTodo = (event: React.SyntheticEvent<EventTarget>) => {
     event.preventDefault();
     if (input) {
       dispatch({
