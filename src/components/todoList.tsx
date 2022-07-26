@@ -63,6 +63,7 @@ export const TodoList = () => {
                     icon={faSquareCheck}
                     color="green"
                     title="Done"
+                    data-testid={`done${i}`}
                     onClick={() => {
                       dispatch({
                         type: ActionType.TODO_DONE,
