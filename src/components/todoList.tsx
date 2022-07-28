@@ -48,6 +48,7 @@ export const TodoList = () => {
                   icon={faTrashCan}
                   color="red"
                   title="Delete"
+                  data-testid={`delete${i}`}
                   onClick={() => {
                     dispatch({
                       type: ActionType.DELETE_TODO,
@@ -80,6 +81,7 @@ export const TodoList = () => {
                     icon={faPenSquare}
                     color="#00a8f0"
                     title="Edit"
+                    data-testid={`edit${i}`}
                     onClick={() => {
                       setEditedTodo(item);
                     }}

@@ -36,6 +36,7 @@ function EditTodo(props: any) {
       <input
         type="text"
         value={input}
+        data-testid="editTodo"
         onChange={(event) => setInput(event.target.value)}
       ></input>
       <button type="submit" onClick={editTodo}>
