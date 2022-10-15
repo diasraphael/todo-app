@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { ActionType } from "../actions/actionTypes";
 import EditTodo from "./EditTodo";
 import { toast } from "react-toastify";
+import { displayToast, Method } from "./util";
 
 export const initialTodo: Todo = {
   id: "",
@@ -24,11 +25,15 @@ export const TodoList = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state: State) => state.todos.todoList);
   const taskDoneNotify = () => {
-    toast.success("Todo completed.", { position: toast.POSITION.BOTTOM_LEFT });
+    displayToast(Method.success, "Todo completed.");
   };
+  /* const taskDoneNotify = () => {
+    toast.success("Todo completed.", { position: toast.POSITION.BOTTOM_LEFT });
+  }; */
 
   const deleteNotify = () => {
-    toast.success("Todo deleted.", { position: toast.POSITION.BOTTOM_LEFT });
+    // toast.success("Todo deleted.", { position: toast.POSITION.BOTTOM_LEFT });
+    displayToast(Method.success, "Todo deleted.");
   };
   return (
     <ul className="todoList">
@@ -38,7 +43,12 @@ export const TodoList = () => {
             <EditTodo todo={editedTodo} setEditedTodo={setEditedTodo} />
           ) : (
             <li>
-              <span data-testid={`todo${i}`}>{item.text}</span>
+              <span
+                data-testid={`todo${i}`}
+                className={item.done === true ? "completed" : ""}
+              >
+                {item.text}
+              </span>
             </li>
           )}
           {!editedTodo.id ? (
